@@ -8,6 +8,5 @@ jobs:
 
       - name: Install
         run: make install
-    steps:
       - name: my-step
         run: make lint
