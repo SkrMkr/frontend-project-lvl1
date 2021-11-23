@@ -19,8 +19,6 @@ export const logicOfGames = (gameRules, args) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export const getRndInteger = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
+export const getRndInteger = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 // export { logicOfGames, getRndInteger };

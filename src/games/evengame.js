@@ -1,4 +1,4 @@
-import { logicOfGames, getRndInteger } from './index.js';
+import { logicOfGames, getRndInteger } from '../index.js';
 
 const isEven = () => {
   const args = () => {
