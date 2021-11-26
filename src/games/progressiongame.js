@@ -13,7 +13,7 @@ const progression = () => {
     const indexRandom = getRndInteger(0, 9);
     const correctAnswer = String(mas[indexRandom]);
     mas[indexRandom] = '..';
-    const question = mas.join(', ');
+    const question = mas.join(' ');
     return { question, correctAnswer };
   };
   const gameRules = 'What number is missing in the progression?';
