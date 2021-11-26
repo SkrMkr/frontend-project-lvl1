@@ -3,7 +3,7 @@ import { logicOfGames, getRndInteger } from '../index.js';
 const isEven = () => {
   const args = () => {
     const num = getRndInteger(0, 999);
-    const question = `Question: ${num}`;
+    const question = num;
     let correctAnswer = 'no';
     if (num % 2 === 0) {
       correctAnswer = 'yes';

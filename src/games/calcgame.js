@@ -7,7 +7,7 @@ const calcGame = () => {
     const randomOperation = arr[getRndInteger(0, 2)];
     const num1 = Math.floor(Math.random() * 100);
     const num2 = Math.floor(Math.random() * 100);
-    const question = `Question: ${num1} ${randomOperation} ${num2}`;
+    const question = `${num1} ${randomOperation} ${num2}`;
     let answer = 0;
     switch (randomOperation) {
       case '+':

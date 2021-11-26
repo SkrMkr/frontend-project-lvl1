@@ -8,7 +8,7 @@ export const logicOfGames = (gameRules, args) => {
 
   for (let i = 0; i < 3; i += 1) {
     const { question, correctAnswer } = args();
-    console.log(question);
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (correctAnswer !== userAnswer) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was ${correctAnswer}. \nLet's try again, ${name}!`);
