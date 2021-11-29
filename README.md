@@ -11,11 +11,11 @@ ___
 There are three steps to installation. 
 
 1.  Clone this repository;
-2.  Implement the command `make install`;
+2.  Execute the command `make install`;
 3.  To install a package from the operating system, use the command `npm link`. 
 ___
   
-Each game is called by its own team, which corresponds to the name of the game. The following are examples of how to start and operate the games.
+Each game is called by its own command, which corresponds to the name of the game. The following are examples of how to start and operate the games.
 
 ### Examples:
 
