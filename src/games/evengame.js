@@ -1,19 +1,19 @@
 import logicOfGames from '../index.js';
 import getRndInteger from '../random.js';
 
-const args = () => {
-  const num = getRndInteger(0, 999);
-  const question = num;
-  let correctAnswer = 'no';
-  if (num % 2 === 0) {
-    correctAnswer = 'yes';
-  }
+const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const isNumEven = (number) => (number % 2 === 0);
+
+const getRightCondition = () => {
+  const numberRandom = getRndInteger(0, 999);
+  const question = numberRandom;
+  const correctAnswer = isNumEven(numberRandom) ? 'yes' : 'no';
   return { question, correctAnswer };
 };
 
 const isEven = () => {
-  const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
-  logicOfGames(gameRules, args);
+  logicOfGames(gameRules, getRightCondition);
 };
 
 export default isEven;

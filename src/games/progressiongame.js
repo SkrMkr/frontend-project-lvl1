@@ -1,24 +1,32 @@
 import logicOfGames from '../index.js';
 import getRndInteger from '../random.js';
 
-const args = () => {
-  const stepCount = getRndInteger(1, 100);
-  const mas = [];
-  const firstNum = getRndInteger(0, 100);
-  let num = firstNum;
-  for (let i = 0; i < 10; i += 1) {
-    num += stepCount;
-    mas.push(num);
+const gameRules = 'What number is missing in the progression?';
+
+const getProgression = (stepCount, firstNum) => {
+  let numOfProgression = firstNum;
+  const lengthOfSeries = 10;
+  const progression = [];
+  for (let i = 0; i < lengthOfSeries; i += 1) {
+    numOfProgression += stepCount;
+    progression.push(numOfProgression);
   }
-  const indexRandom = getRndInteger(0, 9);
-  const correctAnswer = String(mas[indexRandom]);
-  mas[indexRandom] = '..';
-  const question = mas.join(' ');
-  return { question, correctAnswer };
-};
-const progression = () => {
-  const gameRules = 'What number is missing in the progression?';
-  logicOfGames(gameRules, args);
+  return progression;
 };
 
-export default progression;
+const getRightCondition = () => {
+  const stepCount = getRndInteger(1, 100);
+  const firstNum = getRndInteger(0, 100);
+  const progression = getProgression(stepCount, firstNum);
+  const indexRandom = getRndInteger(0, progression.length - 1);
+  const correctAnswer = String(progression[indexRandom]);
+  progression[indexRandom] = '..';
+  const question = progression.join(' ');
+  return { question, correctAnswer };
+};
+
+const progressionGame = () => {
+  logicOfGames(gameRules, getRightCondition);
+};
+
+export default progressionGame;

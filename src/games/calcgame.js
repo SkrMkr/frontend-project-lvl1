@@ -1,32 +1,38 @@
 import logicOfGames from '../index.js';
 import getRndInteger from '../random.js';
 
-const args = () => {
-  const arr = ['+', '-', '*'];
-  const randomOperation = arr[getRndInteger(0, 2)];
-  const num1 = getRndInteger(0, 999);
-  const num2 = getRndInteger(0, 999);
-  const question = `${num1} ${randomOperation} ${num2}`;
+const gameRules = 'What is the result of the expression?';
+const operations = ['+', '-', '*'];
+
+const getResultOperation = (randomNumber1, randomNumber2, randomOperation) => {
   let answer = 0;
   switch (randomOperation) {
     case '+':
-      answer = num1 + num2;
+      answer = randomNumber1 + randomNumber2;
       break;
     case '-':
-      answer = num1 - num2;
+      answer = randomNumber1 - randomNumber2;
       break;
     case '*':
-      answer = num1 * num2;
+      answer = randomNumber1 * randomNumber2;
       break;
     default:
       console.log('error');
   }
-  const correctAnswer = String(answer);
+  return answer;
+};
+
+const getRightCondition = () => {
+  const randomOperation = operations[getRndInteger(0, operations.length - 1)];
+  const randomNumber1 = getRndInteger(0, 999);
+  const randomNumber2 = getRndInteger(0, 999);
+  const question = `${randomNumber1} ${randomOperation} ${randomNumber2}`;
+  const correctAnswer = String(getResultOperation(randomNumber1, randomNumber2, randomOperation));
   return { question, correctAnswer };
 };
+
 const calcGame = () => {
-  const gameRules = 'What is the result of the expression?';
-  logicOfGames(gameRules, args);
+  logicOfGames(gameRules, getRightCondition);
 };
 
 export default calcGame;

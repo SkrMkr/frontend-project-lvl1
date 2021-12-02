@@ -1,21 +1,26 @@
 import logicOfGames from '../index.js';
 import getRndInteger from '../random.js';
 
-const args = () => {
-  const num = getRndInteger(1, 999);
-  const question = num;
+const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const testForPrime = (numberRandom) => {
   let correctAnswer = 'yes';
-  for (let i = num; i > 0; i -= 1) {
-    if (num % i === 0 && i !== num && i !== 1) {
+  for (let i = numberRandom; i > 0; i -= 1) {
+    if (numberRandom % i === 0 && i !== numberRandom && i !== 1) {
       correctAnswer = 'no';
     }
-  }
+  } return correctAnswer;
+};
+
+const getRightCondition = () => {
+  const numberRandom = getRndInteger(1, 999);
+  const question = numberRandom;
+  const correctAnswer = testForPrime(numberRandom);
   return { question, correctAnswer };
 };
 
 const isNumPrime = () => {
-  const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  logicOfGames(gameRules, args);
+  logicOfGames(gameRules, getRightCondition);
 };
 
 export default isNumPrime;
