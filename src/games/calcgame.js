@@ -4,25 +4,20 @@ import getRndInteger from '../random.js';
 const gameRules = 'What is the result of the expression?';
 const operations = ['+', '-', '*'];
 
-const getResultOperation = (randomNumber1, randomNumber2, randomOperation) => {
-  let answer = 0;
-  switch (randomOperation) {
+const getResultOperation = (number1, number2, operation) => {
+  switch (operation) {
     case '+':
-      answer = randomNumber1 + randomNumber2;
-      break;
+      return number1 + number2;
     case '-':
-      answer = randomNumber1 - randomNumber2;
-      break;
+      return number1 - number2;
     case '*':
-      answer = randomNumber1 * randomNumber2;
-      break;
+      return number1 * number2;
     default:
-      console.log('error');
+      throw new Error(`operation ${operation} is not supported`);
   }
-  return answer;
 };
 
-const getRightCondition = () => {
+const generateRoundData = () => {
   const randomOperation = operations[getRndInteger(0, operations.length - 1)];
   const randomNumber1 = getRndInteger(0, 999);
   const randomNumber2 = getRndInteger(0, 999);
@@ -32,7 +27,7 @@ const getRightCondition = () => {
 };
 
 const calcGame = () => {
-  logicOfGames(gameRules, getRightCondition);
+  logicOfGames(gameRules, generateRoundData);
 };
 
 export default calcGame;

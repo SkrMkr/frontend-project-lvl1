@@ -3,12 +3,12 @@ import getRndInteger from '../random.js';
 
 const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isNumEven = (number) => (number % 2 === 0);
+const testForEven = (number) => (number % 2 === 0);
 
 const getRightCondition = () => {
   const numberRandom = getRndInteger(0, 999);
   const question = numberRandom;
-  const correctAnswer = isNumEven(numberRandom) ? 'yes' : 'no';
+  const correctAnswer = testForEven(numberRandom) ? 'yes' : 'no';
   return { question, correctAnswer };
 };
 

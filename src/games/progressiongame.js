@@ -2,26 +2,32 @@ import logicOfGames from '../index.js';
 import getRndInteger from '../random.js';
 
 const gameRules = 'What number is missing in the progression?';
+const lengthOfSeries = 10;
 
-const getProgression = (stepCount, firstNum) => {
-  let numOfProgression = firstNum;
-  const lengthOfSeries = 10;
+const getProgression = (stepCount, firstNumber) => {
+  let numberOfProgression = firstNumber;
   const progression = [];
   for (let i = 0; i < lengthOfSeries; i += 1) {
-    numOfProgression += stepCount;
-    progression.push(numOfProgression);
+    numberOfProgression += stepCount;
+    progression.push(numberOfProgression);
   }
   return progression;
 };
 
+const hideElement = (progression, index) => {
+  const copyProgression = progression;
+  copyProgression[index] = '..';
+  const hideElementProgression = progression.join(' ');
+  return hideElementProgression;
+};
+
 const getRightCondition = () => {
   const stepCount = getRndInteger(1, 100);
-  const firstNum = getRndInteger(0, 100);
-  const progression = getProgression(stepCount, firstNum);
+  const firstNumber = getRndInteger(0, 100);
+  const progression = getProgression(stepCount, firstNumber);
   const indexRandom = getRndInteger(0, progression.length - 1);
   const correctAnswer = String(progression[indexRandom]);
-  progression[indexRandom] = '..';
-  const question = progression.join(' ');
+  const question = hideElement(progression, indexRandom);
   return { question, correctAnswer };
 };
 

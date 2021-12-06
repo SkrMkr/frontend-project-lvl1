@@ -4,14 +4,12 @@ import getRndInteger from '../random.js';
 const gameRules = 'Find the greatest common divisor of given numbers.';
 
 const findRightDivider = (number1, number2) => {
-  let divider = 1;
   for (let i = number1; i > 0; i -= 1) {
     if (number1 % i === 0 && number2 % i === 0) {
-      if (divider < i) {
-        divider = i;
-      }
+      return i;
     }
-  } return divider;
+  }
+  return 1;
 };
 
 const getRightCondition = () => {
