@@ -17,8 +17,7 @@ const getProgression = (stepCount, firstNumber) => {
 const hideElement = (progression, index) => {
   const copyProgression = progression;
   copyProgression[index] = '..';
-  const hideElementProgression = progression.join(' ');
-  return hideElementProgression;
+  return copyProgression.join(' ');
 };
 
 const getRightCondition = () => {
